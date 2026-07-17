@@ -1,0 +1,28 @@
+{
+    "model_name": "ExtraTrees",
+    "trial_name": "trial_4_larger_sample",
+    "validation_rmse": 84.28539159526252,
+    "validation_mae": 37.352140491937476,
+    "target_column": "TVT",
+    "group_column": "well_id",
+    "feature_count": 12,
+    "feature_columns": [
+        "MD",
+        "GR",
+        "TVT_input",
+        "X",
+        "Y",
+        "Z",
+        "ANCC",
+        "ASTNU",
+        "ASTNL",
+        "EGFDU",
+        "EGFDL",
+        "BUDA"
+    ],
+    "training_rows": 4048218,
+    "validation_rows": 1044037,
+    "training_wells": 618,
+    "validation_wells": 155,
+    "random_state": 42
+}

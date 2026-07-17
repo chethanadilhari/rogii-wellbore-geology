@@ -1,0 +1,3 @@
+model,rmse,mae,training_seconds,prediction_seconds,validation_rows,validation_wells,rmse_rank,mae_rank,training_time_rank,prediction_time_rank,overall_score,overall_rank
+ExtraTrees,88.2815618767592,42.24428733661923,77.1927127999952,2.6890133999986574,1044037,155,1,1,3,1,1.2000000000000002,1
+XGBoost,90.22380472002885,42.27476065847644,127.5098571999988,3.7612674000047264,1044037,155,2,2,4,2,2.2,2

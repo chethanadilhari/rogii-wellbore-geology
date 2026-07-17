@@ -1,0 +1,9 @@
+model,trial,rmse,mae,training_seconds,prediction_seconds,parameters
+ExtraTrees,trial_1_more_trees,87.75411114322449,41.914638890865355,126.39495199998782,3.977768600001582,"{""n_estimators"": 200}"
+ExtraTrees,trial_2_deeper_trees,86.56950682246966,39.881989168267054,129.43566709999868,3.3817909999925178,"{""n_estimators"": 150, ""max_depth"": 24}"
+ExtraTrees,trial_3_smaller_leaf,85.67605492411322,38.52517879622568,122.83859869999287,3.7547517999919364,"{""n_estimators"": 150, ""max_depth"": 20, ""min_samples_leaf"": 25}"
+ExtraTrees,trial_4_larger_sample,84.28539159526252,37.352140491937476,165.02748180000344,3.6585067999985768,"{""n_estimators"": 150, ""max_depth"": 20, ""min_samples_leaf"": 25, ""max_samples"": 0.2}"
+XGBoost,trial_1_more_trees,88.62371229801131,40.22552526877791,212.01427919999696,5.394857500010403,"{""n_estimators"": 500}"
+XGBoost,trial_2_lower_learning_rate,90.12268623567945,41.71222204907042,266.1065222000034,6.814845599990804,"{""learning_rate"": 0.03, ""n_estimators"": 500}"
+XGBoost,trial_3_shallower_trees,95.72156096702435,51.393866581603746,101.73210950000794,3.2487065000022994,"{""max_depth"": 6}"
+XGBoost,trial_4_stronger_regularization,91.07230322967666,42.48155119416417,104.00291980001202,2.740042600009474,"{""min_child_weight"": 30, ""reg_lambda"": 2.0}"

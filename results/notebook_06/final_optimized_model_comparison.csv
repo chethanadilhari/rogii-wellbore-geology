@@ -1,0 +1,3 @@
+model,trial,rmse,mae
+ExtraTrees,trial_4_larger_sample,84.28539159526252,37.352140491937476
+XGBoost,trial_1_more_trees,88.62371229801131,40.22552526877791
