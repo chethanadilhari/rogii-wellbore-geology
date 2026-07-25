@@ -67,6 +67,45 @@ def discover_test_wells(
     )
 
 
+def discover_test_well_pairs(
+    test_dir: Path = TEST_DIR,
+) -> list[str]:
+    """
+    Discover complete Kaggle test well pairs.
+
+    A clear error is raised when a typewell or horizontal-well file is
+    missing, because inference must not silently skip an incomplete well.
+    """
+
+    typewell_ids = {
+        file.name.replace("__typewell.csv", "")
+        for file in test_dir.glob("*__typewell.csv")
+    }
+
+    horizontal_ids = {
+        file.name.replace("__horizontal_well.csv", "")
+        for file in test_dir.glob("*__horizontal_well.csv")
+    }
+
+    if not typewell_ids and not horizontal_ids:
+        raise FileNotFoundError(
+            f"No Kaggle test well files were found in {test_dir}."
+        )
+
+    missing_typewells = sorted(horizontal_ids - typewell_ids)
+    missing_horizontal_wells = sorted(typewell_ids - horizontal_ids)
+
+    if missing_typewells or missing_horizontal_wells:
+        raise ValueError(
+            "Incomplete Kaggle test well pairs. "
+            f"Missing typewells: {missing_typewells}; "
+            "missing horizontal wells: "
+            f"{missing_horizontal_wells}."
+        )
+
+    return sorted(typewell_ids)
+
+
 # ==========================================================
 # Training Data Loading
 # ==========================================================
@@ -119,6 +158,33 @@ def load_test_horizontal_well(
 
     return pd.read_csv(
         test_dir / f"{well_id}__horizontal_well.csv"
+    )
+
+
+def load_test_typewell(
+    well_id: str,
+    test_dir: Path = TEST_DIR,
+) -> pd.DataFrame:
+
+    return pd.read_csv(
+        test_dir / f"{well_id}__typewell.csv"
+    )
+
+
+def load_test_pair(
+    well_id: str,
+    test_dir: Path = TEST_DIR,
+) -> tuple[pd.DataFrame, pd.DataFrame]:
+
+    return (
+        load_test_typewell(
+            well_id,
+            test_dir,
+        ),
+        load_test_horizontal_well(
+            well_id,
+            test_dir,
+        ),
     )
 
 

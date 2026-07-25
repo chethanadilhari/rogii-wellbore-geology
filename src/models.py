@@ -1,4 +1,5 @@
-from collections.abc import Sequence
+from collections.abc import Mapping, Sequence
+from typing import Any
 
 from sklearn.compose import ColumnTransformer
 from sklearn.ensemble import (
@@ -125,18 +126,33 @@ def create_hist_gradient_boosting_pipeline(
         ]
     )
 
-
 def create_extra_trees_pipeline(
     feature_columns: Sequence[str],
+    model_params: Mapping[str, Any] | None = None,
 ) -> Pipeline:
     """
-    Create a memory-conscious Extra Trees pipeline for large tabular data.
+    Create a memory-conscious Extra Trees pipeline.
+
+    Custom model parameters can be supplied for optimization trials.
     """
 
     preprocessor = create_preprocessor(
         feature_columns=feature_columns,
         scale_features=False,
     )
+
+    default_params = {
+        "n_estimators": 100,
+        "max_depth": 18,
+        "min_samples_leaf": 50,
+        "bootstrap": True,
+        "max_samples": 0.10,
+        "random_state": 42,
+        "n_jobs": 4,
+    }
+
+    if model_params is not None:
+        default_params.update(model_params)
 
     return Pipeline(
         steps=[
@@ -144,23 +160,20 @@ def create_extra_trees_pipeline(
             (
                 "model",
                 ExtraTreesRegressor(
-                        n_estimators=100,
-                        max_depth=18,
-                        min_samples_leaf=50,
-                        bootstrap=True,
-                        max_samples=0.10,
-                        random_state=42,
-                        n_jobs=4,
-                    ),
+                    **default_params
+                ),
             ),
         ]
     )
 
 def create_xgboost_pipeline(
     feature_columns: Sequence[str],
+    model_params: Mapping[str, Any] | None = None,
 ) -> Pipeline:
     """
     Create a memory-conscious XGBoost regression pipeline.
+
+    Custom model parameters can be supplied for optimization trials.
     """
 
     preprocessor = create_preprocessor(
@@ -168,26 +181,33 @@ def create_xgboost_pipeline(
         scale_features=False,
     )
 
+    default_params = {
+        "objective": "reg:squarederror",
+        "n_estimators": 300,
+        "learning_rate": 0.05,
+        "max_depth": 8,
+        "min_child_weight": 20,
+        "subsample": 0.50,
+        "colsample_bytree": 0.80,
+        "reg_alpha": 0.10,
+        "reg_lambda": 1.00,
+        "tree_method": "hist",
+        "max_bin": 256,
+        "random_state": 42,
+        "n_jobs": 4,
+        "verbosity": 1,
+    }
+
+    if model_params is not None:
+        default_params.update(model_params)
+
     return Pipeline(
         steps=[
             ("preprocessor", preprocessor),
             (
                 "model",
                 XGBRegressor(
-                    objective="reg:squarederror",
-                    n_estimators=300,
-                    learning_rate=0.05,
-                    max_depth=8,
-                    min_child_weight=20,
-                    subsample=0.50,
-                    colsample_bytree=0.80,
-                    reg_alpha=0.10,
-                    reg_lambda=1.00,
-                    tree_method="hist",
-                    max_bin=256,
-                    random_state=42,
-                    n_jobs=4,
-                    verbosity=1,
+                    **default_params
                 ),
             ),
         ]

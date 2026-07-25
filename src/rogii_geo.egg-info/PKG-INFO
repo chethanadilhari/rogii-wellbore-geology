@@ -1,0 +1,67 @@
+Metadata-Version: 2.4
+Name: rogii-geo
+Version: 0.1.0
+Summary: Reusable feature engineering and prediction helpers for Rogii wellbore geology TVT prediction.
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: scikit-learn
+Requires-Dist: xgboost
+Provides-Extra: dev
+Requires-Dist: pytest; extra == "dev"
+
+# Rogii Wellbore Geology
+
+Project for wellbore geology analysis and modeling.
+
+## Project Structure
+
+```
+rogii-wellbore-geology/
+├── data/
+│   ├── raw/          # Raw input data
+│   └── processed/    # Cleaned and transformed data
+├── notebooks/        # Jupyter notebooks for exploration and analysis
+├── src/              # Source code
+├── models/           # Trained models and artifacts
+├── outputs/          # Generated reports, figures, and exports
+├── README.md
+├── requirements.txt
+└── .gitignore
+```
+
+## Setup
+
+```bash
+python -m venv .venv
+.venv\Scripts\activate   # Windows
+pip install -r requirements.txt
+```
+
+## Usage
+
+Add your notebooks to `notebooks/`, source modules to `src/`, and place raw data in `data/raw/`.
+
+## Prediction task (competition detail)
+The model is intended to predict `TVT` only for the hidden prediction-zone rows where `TVT_input` is missing (`TVT_input` is `NaN`).
+
+For the known prefix rows, `TVT_input` is populated and (in the provided training data) `TVT_input == TVT`, so scoring on those rows is overly optimistic compared to the competition’s hidden-section objective.
+
+## Notebook order
+1. `01_data_understanding.ipynb` — inspect schemas and the known vs hidden prediction boundary
+2. `02_exploratory_data_analysis.ipynb` — single-well EDA and boundary behavior
+3. `03_dataset_wide_exploratory_analysis.ipynb` — dataset-wide summaries (well-level + boundary helpers)
+4. `04_baseline_modelling.ipynb` — baseline predictors (e.g., Last Known TVT)
+5. `05_machine_learning_model_development.ipynb` — build the ML training dataset and train baseline ML models
+6. `06_advanced_models_and_optimization.ipynb` — compare/optimize models and save the best pipeline
+7. `07_final_model_evaluation_and_comparison.ipynb` / `07B_final_model_analysis_and_selection.ipynb` — unified evaluation and final selection
+8. `08_final_model_training_and kaggle_submission.ipynb` — local full retrain and submission artifacts
+9. `09_kaggle_end_to_end_submission.ipynb` — **Kaggle-ready** self-contained end-to-end submission (no `src` imports)
+
+## Folder roles
+- `data/raw/` — competition-style per-well CSVs (train + test)
+- `data/processed/` — derived datasets (e.g., `ml_dataset.parquet`)
+- `src/` — reusable data loading, feature engineering, model/pipeline creation, and evaluation helpers
+- `models/` — saved fitted model pipelines (e.g., the best Notebook 06 pipeline)
+- `results/` — metrics, validation predictions, feature lists, and model metadata
