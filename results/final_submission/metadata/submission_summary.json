@@ -1,0 +1,9 @@
+{
+  "selected_model": "blend_lastknown_0.85_xgb",
+  "validation_rmse": 11.958291570332198,
+  "rows": 14151,
+  "prediction_min": 11602.378110914775,
+  "prediction_max": 12225.533450341198,
+  "prediction_mean": 11906.008686661,
+  "output_path": "C:\\Dev\\Rogii Wellbore Geology\\rogii-wellbore-geology\\submissions\\final_submission\\submission.csv"
+}
