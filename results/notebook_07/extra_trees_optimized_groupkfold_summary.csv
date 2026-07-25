@@ -1,0 +1,2 @@
+model,validation_method,oof_rmse,oof_mae,mean_fold_rmse,std_fold_rmse,mean_fold_mae,std_fold_mae,total_training_seconds,total_prediction_seconds,total_evaluation_seconds,evaluated_rows,evaluated_wells
+Extra Trees Optimized,5-Fold GroupKFold,83.58603724268727,37.749300465977164,82.3171549874033,16.186764523369632,37.74752354092095,4.951592705010548,864.2303899000108,27.049681999953464,943.9293651999906,5092255,773

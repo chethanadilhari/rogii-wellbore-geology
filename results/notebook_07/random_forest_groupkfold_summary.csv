@@ -1,0 +1,2 @@
+model,validation_method,oof_rmse,oof_mae,mean_fold_rmse,std_fold_rmse,mean_fold_mae,std_fold_mae,total_training_seconds,total_prediction_seconds,total_evaluation_seconds,evaluated_rows,evaluated_wells
+Random Forest,5-Fold GroupKFold,105.00189961450357,48.51056114020981,103.68656900579882,18.478663622775997,48.50766635431709,4.730992768054551,2809.898801100033,14.525849199970253,2868.5772609999985,5092255,773

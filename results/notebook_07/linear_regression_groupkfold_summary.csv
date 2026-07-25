@@ -1,0 +1,2 @@
+model,validation_method,oof_rmse,oof_mae,mean_fold_rmse,std_fold_rmse,mean_fold_mae,std_fold_mae,total_training_seconds,total_prediction_seconds,total_evaluation_seconds,evaluated_rows,evaluated_wells
+Linear Regression,5-Fold GroupKFold,115.639869842476,83.83981573144136,115.08391110332221,12.772848662675703,83.84259497179892,5.627576370811915,148.69291189999785,4.000104200007627,202.71033579998766,5092255,773

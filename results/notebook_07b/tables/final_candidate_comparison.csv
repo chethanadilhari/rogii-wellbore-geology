@@ -1,0 +1,3 @@
+candidate,candidate_type,oof_rmse,oof_mae
+Extra Trees Optimized (0.80) + XGBoost Optimized (0.20),Weighted Ensemble,82.97945521511976,38.103615891869296
+Extra Trees Optimized,Individual Model,83.58603724268727,37.74930046597717

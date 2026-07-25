@@ -1,0 +1,5 @@
+model,estimator,n_estimators,max_depth,min_samples_leaf,max_samples,learning_rate,random_state,n_jobs
+Linear Regression,LinearRegression,,,,,,,
+Random Forest,RandomForestRegressor,100.0,18.0,50.0,0.1,,42.0,4.0
+Extra Trees Optimized,ExtraTreesRegressor,150.0,20.0,25.0,0.2,,42.0,4.0
+XGBoost Optimized,XGBRegressor,500.0,8.0,,,0.05,42.0,4.0

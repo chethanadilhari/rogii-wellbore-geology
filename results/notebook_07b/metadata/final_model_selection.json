@@ -1,0 +1,15 @@
+{
+    "candidate_type": "ensemble",
+    "candidate_name": "Weighted Ensemble",
+    "model_a": "Extra Trees Optimized",
+    "model_b": "XGBoost Optimized",
+    "weight_model_a": 0.8,
+    "weight_model_b": 0.19999999999999996,
+    "oof_rmse": 82.97945521511976,
+    "oof_mae": 38.103615891869296,
+    "best_individual_model": "Extra Trees Optimized",
+    "best_individual_rmse": 83.58603724268727,
+    "rmse_improvement": 0.6065820275675122,
+    "rmse_improvement_percentage": 0.7256977930492579,
+    "selection_reason": "The weighted ensemble achieved a lower OOF RMSE than the strongest individual model."
+}

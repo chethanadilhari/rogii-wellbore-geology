@@ -1,0 +1,5 @@
+best_model,wells_won,win_percentage
+Extra Trees Optimized,418,54.075032341526516
+XGBoost Optimized,129,16.6882276843467
+Linear Regression,124,16.041397153945667
+Random Forest,102,13.195342820181114
