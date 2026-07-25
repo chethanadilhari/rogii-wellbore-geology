@@ -1,0 +1,11 @@
+item,value
+Random Seed,42
+Final Candidate,Weighted Ensemble
+Model A,Extra Trees Optimized
+Model B,XGBoost Optimized
+Model A Weight,0.8
+Model B Weight,0.2
+Training Wells,773
+Training Rows,5092255
+Prediction Rows,14151
+Feature Count,6

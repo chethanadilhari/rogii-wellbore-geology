@@ -1,0 +1,3 @@
+model,prediction_rows,prediction_seconds,rows_per_second
+Extra Trees Optimized,14151,0.135849,104167.13
+XGBoost Optimized,14151,0.119678,118242.03

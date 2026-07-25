@@ -1,0 +1,19 @@
+{
+    "submission_filename": "submission.csv",
+    "submission_path": "c:\\Dev\\Rogii Wellbore Geology\\rogii-wellbore-geology\\submissions\\submission.csv",
+    "number_of_rows": 14151,
+    "number_of_columns": 2,
+    "columns": [
+        "id",
+        "tvt"
+    ],
+    "prediction_column": "tvt",
+    "candidate_name": "Weighted Ensemble",
+    "extra_trees_weight": 0.8,
+    "xgboost_weight": 0.2,
+    "prediction_minimum": 11577.218592433244,
+    "prediction_maximum": 12268.21519579794,
+    "prediction_mean": 11905.944473450669,
+    "all_predictions_finite": true,
+    "ids_match_sample_submission": true
+}

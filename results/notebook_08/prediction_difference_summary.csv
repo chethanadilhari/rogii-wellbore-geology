@@ -1,0 +1,6 @@
+metric,value
+correlation,0.9982710677222134
+mean_absolute_difference,12.864658197343017
+median_absolute_difference,10.37353561931559
+maximum_absolute_difference,63.57774508344664
+mean_signed_difference,-2.7769435902466046

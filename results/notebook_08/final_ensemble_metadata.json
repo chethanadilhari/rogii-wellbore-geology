@@ -1,0 +1,17 @@
+{
+    "candidate_type": "ensemble",
+    "candidate_name": "Weighted Ensemble",
+    "model_a": "Extra Trees Optimized",
+    "model_b": "XGBoost Optimized",
+    "weight_model_a": 0.8,
+    "weight_model_b": 0.2,
+    "number_of_prediction_rows": 14151,
+    "number_of_test_wells": 3,
+    "prediction_minimum": 11577.218592433244,
+    "prediction_maximum": 12268.21519579794,
+    "prediction_mean": 11905.944473450669,
+    "prediction_standard_deviation": 279.95429670980917,
+    "ensemble_calculation_seconds": 0.0008094310760498047,
+    "source_selection_notebook": "Notebook 07B",
+    "training_notebook": "Notebook 08"
+}

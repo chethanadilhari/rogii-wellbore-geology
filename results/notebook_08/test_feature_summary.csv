@@ -1,0 +1,4 @@
+well_id,horizontal_file,typewell_file,total_horizontal_rows,prediction_rows,known_tvt_input_rows,typewell_rows,missing_feature_values,construction_seconds
+000d7d20,000d7d20__horizontal_well.csv,000d7d20__typewell.csv,5278,3836,1442,1296,5652,0.0911
+00bbac68,00bbac68__horizontal_well.csv,00bbac68__typewell.csv,7559,6014,1545,1946,6846,0.0911
+00e12e8b,00e12e8b__horizontal_well.csv,00e12e8b__typewell.csv,6384,4301,2083,2556,4719,0.0911
