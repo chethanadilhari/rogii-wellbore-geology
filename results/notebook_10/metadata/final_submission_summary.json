@@ -1,0 +1,12 @@
+{
+  "selected_candidate": "last_known_tvt",
+  "validation_rmse": 16.214981057482472,
+  "validation_mae": 10.826793088500645,
+  "row_count": 14151,
+  "min_prediction": 11595.483550271374,
+  "max_prediction": 12238.34162714456,
+  "mean_prediction": 11906.121208044684,
+  "output_path": "C:\\Dev\\Rogii Wellbore Geology\\rogii-wellbore-geology\\submissions\\notebook_10\\submission.csv",
+  "local_copy_path": "C:\\Dev\\Rogii Wellbore Geology\\rogii-wellbore-geology\\submissions\\submission.csv",
+  "validation_ok": true
+}

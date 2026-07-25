@@ -1,0 +1,14 @@
+{
+  "has_explicit_test_ids": false,
+  "sample_submission_rows": 14151,
+  "missing_tvt_input_rows": 14151,
+  "counts_equal": true,
+  "constructed_set_equals_sample_set": true,
+  "constructed_order_equals_sample_order": true,
+  "sorted_well_order_equals_sample_order": true,
+  "registry_order_equals_sample_order": true,
+  "strategy": "well_id_row_index_sorted_wells",
+  "stable_sort_rule": "sorted(well_id), then original row index ascending for missing TVT_input",
+  "decode_failures": 0,
+  "proven": true
+}

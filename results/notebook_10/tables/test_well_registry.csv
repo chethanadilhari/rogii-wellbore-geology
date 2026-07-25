@@ -1,0 +1,4 @@
+well_id,horizontal_path,typewell_path,horizontal_exists,typewell_exists
+000d7d20,C:\Dev\Rogii Wellbore Geology\rogii-wellbore-geology\data\raw\test\000d7d20__horizontal_well.csv,C:\Dev\Rogii Wellbore Geology\rogii-wellbore-geology\data\raw\test\000d7d20__typewell.csv,True,True
+00bbac68,C:\Dev\Rogii Wellbore Geology\rogii-wellbore-geology\data\raw\test\00bbac68__horizontal_well.csv,C:\Dev\Rogii Wellbore Geology\rogii-wellbore-geology\data\raw\test\00bbac68__typewell.csv,True,True
+00e12e8b,C:\Dev\Rogii Wellbore Geology\rogii-wellbore-geology\data\raw\test\00e12e8b__horizontal_well.csv,C:\Dev\Rogii Wellbore Geology\rogii-wellbore-geology\data\raw\test\00e12e8b__typewell.csv,True,True
