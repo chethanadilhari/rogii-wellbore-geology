@@ -26,15 +26,15 @@ export function AppShell({
 }: AppShellProps) {
   return (
     <div className={`app-shell${mobileOpen ? ' mobile-open' : ''}`}>
-      <div
-        className="sidebar-backdrop"
-        onClick={onCloseMobile}
-        aria-hidden="true"
-      />
       <aside className="app-sidebar" aria-label="Primary">
         <div className="sidebar-brand">
-          <strong>Rogii Wellbore</strong>
-          <span>TVT trailing-section prediction</span>
+          <div className="sidebar-brand-mark" aria-hidden="true">
+            RW
+          </div>
+          <div className="sidebar-brand-copy">
+            <strong>Rogii Wellbore</strong>
+            <span>TVT trailing-section prediction</span>
+          </div>
         </div>
         <nav className="sidebar-nav">
           {NAV_ITEMS.map((item) => (
@@ -54,14 +54,21 @@ export function AppShell({
             </NavLink>
           ))}
         </nav>
+        <div className="sidebar-footer">Wellbore geology · ML prediction</div>
       </aside>
+
+      <div
+        className="sidebar-backdrop"
+        onClick={onCloseMobile}
+        aria-hidden="true"
+      />
 
       <div className="app-main">
         <header className="app-header">
           <div className="header-left">
             <button
               type="button"
-              className="icon-btn"
+              className="icon-btn header-menu-btn"
               aria-label={mobileOpen ? 'Close navigation' : 'Open navigation'}
               aria-expanded={mobileOpen}
               onClick={onToggleMobile}

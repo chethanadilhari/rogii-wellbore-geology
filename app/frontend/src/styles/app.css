@@ -71,16 +71,27 @@ p {
 
 .app-shell {
   display: grid;
-  grid-template-columns: var(--sidebar-width) 1fr;
+  grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
+  grid-template-areas: "sidebar main";
   min-height: 100vh;
+  width: 100%;
 }
 
 .app-shell.sidebar-collapsed {
-  grid-template-columns: var(--sidebar-collapsed) 1fr;
+  grid-template-columns: var(--sidebar-collapsed) minmax(0, 1fr);
+}
+
+.sidebar-backdrop {
+  display: none;
 }
 
 .app-sidebar {
-  background: #10233f;
+  grid-area: sidebar;
+  width: var(--sidebar-width);
+  max-width: 100%;
+  background:
+    linear-gradient(180deg, rgba(27, 79, 138, 0.22) 0%, transparent 42%),
+    #0c1a2e;
   color: #f4f7fb;
   display: flex;
   flex-direction: column;
@@ -88,31 +99,56 @@ p {
   top: 0;
   height: 100vh;
   z-index: 20;
+  border-right: 1px solid rgba(255, 255, 255, 0.06);
+  overflow: hidden;
 }
 
 .sidebar-brand {
-  padding: 1.1rem 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1.25rem 1rem 1.1rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.sidebar-brand-mark {
+  flex-shrink: 0;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(145deg, #2a6cb0, #1b4f8a);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.sidebar-brand-copy {
+  min-width: 0;
 }
 
 .sidebar-brand strong {
   display: block;
   font-size: 0.95rem;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.01em;
+  line-height: 1.25;
 }
 
 .sidebar-brand span {
   display: block;
-  margin-top: 0.25rem;
-  color: rgba(244, 247, 251, 0.7);
-  font-size: 0.78rem;
+  margin-top: 0.2rem;
+  color: rgba(244, 247, 251, 0.62);
+  font-size: 0.72rem;
+  line-height: 1.35;
 }
 
 .sidebar-nav {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
-  padding: 0.85rem 0.65rem;
+  gap: 0.3rem;
+  padding: 0.9rem 0.7rem;
   flex: 1;
 }
 
@@ -120,36 +156,60 @@ p {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  padding: 0.7rem 0.8rem;
+  padding: 0.65rem 0.75rem;
   border-radius: 8px;
-  color: rgba(244, 247, 251, 0.86);
+  color: rgba(244, 247, 251, 0.82);
   text-decoration: none;
   border: 1px solid transparent;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
 }
 
 .sidebar-link:hover,
 .sidebar-link:focus-visible {
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.07);
   outline: none;
   text-decoration: none;
-}
-
-.sidebar-link.active {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.12);
   color: #fff;
 }
 
+.sidebar-link.active {
+  background: rgba(232, 240, 248, 0.14);
+  border-color: rgba(232, 240, 248, 0.16);
+  color: #fff;
+  box-shadow: inset 3px 0 0 #6ea8e0;
+}
+
 .sidebar-link .nav-icon {
-  width: 1.25rem;
-  text-align: center;
-  opacity: 0.9;
+  width: 1.4rem;
+  height: 1.4rem;
+  display: grid;
+  place-items: center;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  font-size: 0.78rem;
+  line-height: 1;
+  opacity: 0.95;
+}
+
+.sidebar-link.active .nav-icon {
+  background: rgba(110, 168, 224, 0.22);
+}
+
+.sidebar-footer {
+  margin-top: auto;
+  padding: 0.9rem 1rem 1.1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(244, 247, 251, 0.55);
+  font-size: 0.72rem;
+  line-height: 1.4;
 }
 
 .app-main {
+  grid-area: main;
   min-width: 0;
   display: flex;
   flex-direction: column;
+  background: var(--bg);
 }
 
 .app-header {
@@ -171,6 +231,11 @@ p {
   display: flex;
   align-items: center;
   gap: 0.75rem;
+  min-width: 0;
+}
+
+.header-menu-btn {
+  display: none;
 }
 
 .header-title {
@@ -755,30 +820,36 @@ p {
 @media (max-width: 900px) {
   .app-shell,
   .app-shell.sidebar-collapsed {
-    grid-template-columns: 1fr;
+    display: block;
+  }
+
+  .header-menu-btn {
+    display: inline-flex;
   }
 
   .app-sidebar {
     position: fixed;
     inset: 0 auto 0 0;
     width: min(280px, 86vw);
+    height: 100vh;
     transform: translateX(-105%);
     transition: transform 0.2s ease;
+    box-shadow: 4px 0 24px rgba(12, 26, 46, 0.28);
   }
 
   .app-shell.mobile-open .app-sidebar {
     transform: translateX(0);
   }
 
-  .sidebar-backdrop {
-    display: none;
+  .app-main {
+    width: 100%;
   }
 
   .app-shell.mobile-open .sidebar-backdrop {
     display: block;
     position: fixed;
     inset: 0;
-    background: rgba(16, 35, 63, 0.45);
+    background: rgba(12, 26, 46, 0.45);
     z-index: 15;
   }
 }
