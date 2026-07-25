@@ -15,6 +15,12 @@ data/
 # Models
 models/
 
+# Trained artifact binaries / versioned bundles
+artifacts/
+
+# Local one-well CLI prediction outputs
+predictions/
+
 # IDE
 .vscode/
 .idea/
@@ -22,3 +28,7 @@ models/
 # OS
 .DS_Store
 Thumbs.db
+
+# Local scratch / notebook extract helpers
+tmp/
+_tmp_nb_extract/
