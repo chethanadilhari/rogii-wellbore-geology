@@ -1,0 +1,11 @@
+Split,Metric,Value
+train,Typewell files,773
+train,Horizontal files,773
+train,Matched pairs,773
+test,Typewell files,3
+test,Horizontal files,3
+test,Matched pairs,3
+test,Malformed IDs,0
+sample_train_well,Horizontal rows,5278
+sample_train_well,Typewell rows,1296
+sample_train_well,Prediction-region rows,3836

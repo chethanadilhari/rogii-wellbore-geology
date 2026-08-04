@@ -1,0 +1,4 @@
+Variable,Wells_Affected,Median_Missing_Pct_Among_Affected,Max_Missing_Pct,Median_Longest_Run_Rows,Pattern
+TVT_input (prediction mask),773,73.99910700997172,87.51648351648352,4840.0,Primarily trailing contiguous blocks
+GR,773,27.703782631859355,80.0989010989011,13.0,Mixed blocks and irregular gaps
+Typewell Geology,713,36.69408331122314,66.40430820215411,,Label incompleteness on typewell

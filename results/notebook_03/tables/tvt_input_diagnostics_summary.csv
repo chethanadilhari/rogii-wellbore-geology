@@ -1,0 +1,8 @@
+Metric,Value
+Wells with clean trailing TVT_input block,773.0
+Wells with unexpected internal gaps,0.0
+Wells where known TVT_input matches TVT,773.0
+Median prediction-region percentage,74.0
+Median prediction-horizon MD,4839.0
+Median known rows,1703.0
+Median prediction rows,4840.0

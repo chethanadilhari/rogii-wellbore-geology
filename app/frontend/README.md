@@ -30,13 +30,27 @@ VITE_API_BASE_URL=http://127.0.0.1:8000
 
 ## Start the backend
 
-From the repository root:
+From the repository root (preferred):
+
+```powershell
+.\scripts\local\start-api.ps1 -Reload
+```
+
+Or:
 
 ```bash
 uvicorn app.api.main:app --host 127.0.0.1 --port 8000 --reload
 ```
 
 ## Start the frontend
+
+Preferred:
+
+```powershell
+.\scripts\local\start-frontend.ps1
+```
+
+Or:
 
 ```bash
 cd app/frontend
@@ -49,6 +63,17 @@ Expected URLs:
 - API: http://127.0.0.1:8000
 - Docs: http://127.0.0.1:8000/docs
 
+Health check (both up):
+
+```powershell
+.\scripts\local\health-check.ps1
+```
+
+Full local integration + CLI/API/golden parity:
+
+```powershell
+.\.venv\Scripts\python.exe scripts\local\verify_local_integration.py
+```
 ## CSV input mode
 
 1. Open **Predict Well**

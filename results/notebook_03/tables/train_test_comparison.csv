@@ -1,0 +1,15 @@
+Metric,Train,Test
+Number of well pairs,773,3
+Total horizontal rows,5092255,19221
+Median rows per horizontal well,6576.0,6384.0
+Total typewell rows,1567045,5798
+Median typewell rows,1874.0,1946.0
+Median prediction-region %,73.99910700997172,72.67904509283821
+Median GR missingness %,27.703782631859355,12.461965868501125
+MD range (global min/max),9335.0–22964.0,10456.0–19136.0
+X range,2855426.5–3039107.3,2967726.5–3010760.1
+Y range,1007175.5–1141857.5,1060431.2–1089521.4
+Z range,-11027.6–-7174.2,-10182.6–-8356.0
+Typewell TVT range,9232.6–12991.5,10594.0–12367.0
+Typewell GR range,18.5–433.6,28.7–215.4
+Available horizontal columns,"ANCC, ASTNL, ASTNU, BUDA, EGFDL, EGFDU, GR, MD, TVT, TVT_input, X, Y, Z","GR, MD, TVT_input, X, Y, Z"

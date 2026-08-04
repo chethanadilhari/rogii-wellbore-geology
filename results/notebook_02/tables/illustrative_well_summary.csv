@@ -1,0 +1,15 @@
+,Value
+Well ID,000d7d20
+Typewell Rows,1296
+Horizontal Rows,5278
+Known TVT Rows,1442
+Prediction Rows,3836
+Prediction Percentage,72.68
+Prediction Start MD,12909.0
+Last Known TVT_input,11747.37
+Prediction Horizon MD,3835.0
+Clean Trailing TVT_input Block,True
+Unexpected Internal Gaps,False
+TVT_input Matches TVT,True
+Typewell Covers Horizontal TVT,True
+Selection Note,Lexicographic worked example; not statistically representative

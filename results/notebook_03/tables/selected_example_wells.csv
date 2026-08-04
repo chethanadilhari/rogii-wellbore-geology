@@ -1,0 +1,4 @@
+Role,Well_ID,Criterion
+Typical,3df4b19e,"Closest to medians of rows, prediction %, GR missingness"
+Long-horizon,ea3a0e38,Maximum Prediction_Horizon_MD
+Data-quality challenge,10b89021,High GR missingness / long missing runs / coverage issues

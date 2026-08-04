@@ -1,0 +1,11 @@
+Metric,Value
+Number of training well pairs,773
+Number of test well pairs,3
+Total training horizontal rows,"5,092,255"
+Total training typewell rows,"1,567,045"
+Total test horizontal rows,"19,221"
+Total test typewell rows,"5,798"
+Median / min / max rows per horizontal well (train),"6,576 / 2,058 / 12,141"
+Numeric / categorical columns (sample horizontal),13 / 0
+Approx. GR missing values (train horizontal),"1,507,972"
+Prediction-region rows / percentage (train),"3,783,989 / 74.31%"

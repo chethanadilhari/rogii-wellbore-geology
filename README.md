@@ -14,7 +14,7 @@ rogii-wellbore-geology/
 ├── src/rogii_geo/     # Production package (features, training, inference)
 ├── app/api/           # FastAPI one-well prediction backend (Phase 4)
 ├── app/frontend/      # React/Vite local UI (Phase 5)
-├── scripts/           # CLI entry points (train_export, predict_well)
+├── scripts/           # CLI (train_export, predict_well) + local/ startup helpers
 ├── artifacts/         # Versioned model bundles (gitignored binaries)
 ├── models/            # Legacy notebook joblibs
 ├── results/           # Notebook metrics / metadata
@@ -73,6 +73,10 @@ CORS_ALLOWED_ORIGINS=http://localhost:5173,http://127.0.0.1:5173
 
 ### Start the API
 
+```powershell
+.\scripts\local\start-api.ps1 -Reload
+```
+
 ```bash
 uvicorn app.api.main:app --host 127.0.0.1 --port 8000 --reload
 # or
@@ -111,6 +115,84 @@ curl -X POST -F "file=@data/raw/test/000d7d20__horizontal_well.csv" \
 
 Prediction responses include headers such as `X-Model-Version`, `X-Well-Id`, `X-Prediction-Rows`, and `X-Request-ID`.
 
+## Local integration (Phase 6)
+
+Run the API and React UI together with the helper scripts under `scripts/local/`.
+
+### One-time setup
+
+```bash
+python -m venv .venv
+.venv\Scripts\python.exe -m pip install -r requirements.txt
+.venv\Scripts\python.exe -m pip install -e .
+copy .env.example .env
+cd app\frontend
+npm install
+copy .env.example .env
+cd ..\..
+```
+
+Artifacts must exist locally (`artifacts/current.json` → `v1`). If missing, run `python scripts/train_export.py`.
+
+### Start (Windows PowerShell)
+
+```powershell
+# Option A — two windows
+.\scripts\local\start-stack.ps1
+# or with API reload:
+.\scripts\local\start-stack.ps1 -Reload
+
+# Option B — separate terminals
+.\scripts\local\start-api.ps1 -Reload
+.\scripts\local\start-frontend.ps1
+```
+
+### Start (Unix / Git Bash)
+
+```bash
+bash scripts/local/start-api.sh --reload
+bash scripts/local/start-frontend.sh
+# or background both:
+bash scripts/local/start-stack.sh --reload
+```
+
+### Health check
+
+```powershell
+.\scripts\local\health-check.ps1
+```
+
+```bash
+bash scripts/local/health-check.sh
+```
+
+Expects:
+
+- `GET /health` → `status=healthy`, `model_loaded=true`
+- `GET /models/current` → 200
+- Frontend `http://127.0.0.1:5173` → 200
+
+### Full local integration + parity
+
+With the stack running:
+
+```powershell
+.\.venv\Scripts\python.exe scripts\local\verify_local_integration.py
+```
+
+This exercises CSV validate/predict, both CSV downloads, manual-well multipart uploads, frontend reachability, and CLI ↔ API ↔ golden-fixture parity (`tests/fixtures/`). Notebook outputs are represented by the frozen golden fixtures produced from the production package recipe `blend_lastknown_0.70_ensemble`.
+
+### Test suite
+
+```powershell
+.\.venv\Scripts\python.exe -m pytest tests -v
+cd app\frontend
+npm run test
+npm run build
+```
+
+See `scripts/local/README.md` for script details.
+
 ## React frontend (Phase 5)
 
 Local desktop-focused UI for one-well validation, prediction, review, and download. No browser-side ML.
@@ -125,6 +207,8 @@ copy .env.example .env   # Windows
 ```
 
 ### Run locally
+
+Prefer Phase 6 scripts above, or:
 
 Terminal 1 (API):
 
@@ -369,6 +453,12 @@ python -m pytest tests -v
 ```
 
 Golden inference fixtures live under `tests/fixtures/` and exercise `artifacts/v1` when present.
+
+Live stack check (API must be running):
+
+```bash
+python scripts/local/verify_local_integration.py
+```
 
 ## Notebook order (research history)
 
