@@ -21,6 +21,12 @@ artifacts/
 # Local one-well CLI prediction outputs
 predictions/
 
+# Large prediction / OOF artifacts (GitHub blocks files >100MB)
+**/*_predictions.csv
+**/*_predictions.parquet
+**/best_ensemble_oof_predictions.parquet
+**/_masked_chunks_*/
+
 # IDE
 .vscode/
 .idea/
