@@ -69,6 +69,17 @@ describe('ModelPage', () => {
     expect(
       screen.getByText(/Not loaded by the production pipeline/i),
     ).toBeInTheDocument();
+    expect(screen.getByText('Models trained')).toBeInTheDocument();
+    expect(screen.getByText('Baselines')).toBeInTheDocument();
+    expect(screen.getByText('Production blend')).toBeInTheDocument();
+    expect(screen.getAllByText('Why we moved on').length).toBeGreaterThan(0);
+    expect(screen.getByText(/cannot learn across wells/i)).toBeInTheDocument();
+    expect(screen.getByText('In production')).toBeInTheDocument();
+    expect(screen.getByText(/Extra Trees 0\.80/i)).toBeInTheDocument();
+    expect(
+      screen.getByText(/Last-known TVT 0\.70 · Residual projection 0\.30/i),
+    ).toBeInTheDocument();
+    expect(screen.getByText('12.81')).toBeInTheDocument();
   });
 
   it('shows an API error state', async () => {
