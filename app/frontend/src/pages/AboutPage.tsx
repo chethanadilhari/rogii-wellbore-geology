@@ -205,10 +205,63 @@ export function AboutPage() {
             provide additional geological context about important formation
             positions around the well.
           </p>
+
+          <div
+            className="about-formation-depth"
+            aria-label="Example formation marker depths from shallower to deeper"
+          >
+            <div className="about-formation-depth-label">Shallower</div>
+            <ol className="about-formation-depth-list">
+              <li>
+                <span className="about-formation-dot" aria-hidden="true" />
+                <span className="about-formation-name">Well position (Z)</span>
+                <span className="about-formation-value">-9258.57</span>
+                <span className="about-formation-note" />
+              </li>
+              <li>
+                <span className="about-formation-dot" aria-hidden="true" />
+                <span className="about-formation-name">ANCC</span>
+                <span className="about-formation-value">-9395.81</span>
+                <span className="about-formation-note" />
+              </li>
+              <li className="about-formation-boundary">
+                <span className="about-formation-dot" aria-hidden="true" />
+                <span className="about-formation-name">ASTNU</span>
+                <span className="about-formation-value">-9569.86</span>
+                <span className="about-formation-note">Upper boundary</span>
+              </li>
+              <li className="about-formation-boundary">
+                <span className="about-formation-dot" aria-hidden="true" />
+                <span className="about-formation-name">ASTNL</span>
+                <span className="about-formation-value">-9597.64</span>
+                <span className="about-formation-note">Lower boundary</span>
+              </li>
+              <li className="about-formation-boundary">
+                <span className="about-formation-dot" aria-hidden="true" />
+                <span className="about-formation-name">EGFDU</span>
+                <span className="about-formation-value">-9670.99</span>
+                <span className="about-formation-note">Upper boundary</span>
+              </li>
+              <li className="about-formation-boundary">
+                <span className="about-formation-dot" aria-hidden="true" />
+                <span className="about-formation-name">EGFDL</span>
+                <span className="about-formation-value">-9705.96</span>
+                <span className="about-formation-note">Lower boundary</span>
+              </li>
+              <li>
+                <span className="about-formation-dot" aria-hidden="true" />
+                <span className="about-formation-name">BUDA</span>
+                <span className="about-formation-value">-9846.35</span>
+                <span className="about-formation-note" />
+              </li>
+            </ol>
+            <div className="about-formation-depth-label deeper">Deeper</div>
+          </div>
+
           <p className="help-text">
             In short: ANCC, ASTNU, ASTNL, EGFDU, EGFDL, and BUDA are formation
             markers that describe important geological boundaries around the
-            well.
+            well. Depths become more negative as the well goes deeper.
           </p>
         </div>
 
